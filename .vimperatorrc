@@ -1,0 +1,135 @@
+"+----------------------------------------------------------------------------------------+ 
+"基本設定
+"+----------------------------------------------------------------------------------------+ 
+
+":set guioptions+=m
+"詳細表示を7行に(最大値=9) 
+set verbose=9 
+":[tab]open時の補完設定(s=検索エンジン+キーワードURL,l=ロケーションバーの補完機能を利用) 
+set complete=sl 
+"コマンド入力時にコマンド名を自動補完 
+set wildoptions=auto 
+"デフォルト検索エンジン(検索バーの管理→キーワード,うちではg=google) 
+"set defsearch=g 
+
+"検索語のハイライト 
+set hlsearch 
+"開いているページが1つならタブ非表示 
+set showtabline=1 
+"履歴を保存 
+set history=1000 
+
+" Hit-a-Hintのフォントを大きく
+"set hintstyle+=font-size:15px;
+
+"サジェストエンジンの設定 
+"set suggestengines=g
+
+
+" Beepウザイ
+set visualbell
+highlight Bell display:none
+
+
+"+----------------------------------------------------------------------------------------+ 
+"キーマップ設定
+"+----------------------------------------------------------------------------------------+ 
+
+map <C-c> Y
+
+
+" j/k でのスクロール幅を 1行 から 3行 に変更
+noremap j 5<C-e>
+noremap k 5<C-y>
+
+map <S-q> :q
+
+" <C-h>/<C-l> や ← → でタブ移動 
+map <C-h> <A-Left> 
+map <C-l> <A-Right> 
+map <Left> gT 
+map <Right> gt 
+
+
+" C-r でブラウザ再起動
+map <C-r> :restart<CR>
+
+" C-q でブラウザ閉じる
+map <C-q> :quitall<CR>
+
+
+noremap c :tabopen google<Space>
+
+
+noremap v :bmarks!<Space>
+
+
+
+"グーグルカレンダー表示
+map cal :tabopen<Space>http://www.google.com/calendar<CR>
+
+
+autocmd LocationChange (?!http://reader\.livedoor\.com/reader/) set! browser.tabs.loadDivertedInBackground=false 
+autocmd LocationChange http://reader\.livedoor\.com/reader/ set! browser.tabs.loadDivertedInBackground=true
+
+
+
+map ! :set invum<CR>
+map S :viewsource<CR>
+
+"+----------------------------------------------------------------------------------------+ 
+"プラグイン設定
+"+----------------------------------------------------------------------------------------+ 
+
+"" ime_controller.js
+let g:ex_ime_mode = "inactive"
+let g:textarea_ime_mode = "inactive"
+
+
+" feedSomeKeys.js 
+autocmd LocationChange .* :fmapc 
+autocmd LocationChange reader\\.livedoor\\.com/reader :fmap j k p o s c g u
+autocmd LocationChange google\\.com/calendar/render :fmap c p n t x w m a q <Esc>
+autocmd LocationChange nfeed\\.wwws\.nri\\.co\\.jp/feeds :fmap s a j k c
+
+
+"" ldr_cooperation.js 
+""let g:ldrc_captureMappings = "['t', 'h', 'l', 'j', 'k', 'p', 'o', '?']" 
+let g:ldrc_captureMappings = "[ 'j', 'k', 'p', 'o', '?']" 
+
+let g:ldrc_hints = "true" 
+let g:ldrc_intelligence_bind = "true" 
+let g:ldrc_skip = "0.20" 
+
+set hintmatching=custom 
+
+""splitBrowser.js
+noremap <C-w>s :split<CR>
+noremap <C-w>v :vsplit<CR>
+
+
+
+"""""""" websites """""""" 
+"""""""" others """""""" 
+
+
+js <<EOM
+// j,kキーでスムーススクロールする
+(function(){
+  var scrollAmount = 400;
+  // direction : positive (down) / negative (up)
+  function smoothScroll(amount, direction) {
+    var half = Math.floor(amount / 2);
+    window.content.window.wrappedJSObject.scrollBy(0, half * direction);
+    if (half >= 1) 
+      setTimeout(function(){smoothScroll(half, direction)}, 10);
+  }
+  mappings.addUserMap([modes.NORMAL], ["j"], "", function(){ smoothScroll(scrollAmount,  1)},{rhs:"down"}); 
+  mappings.addUserMap([modes.NORMAL], ["k"], "", function(){ smoothScroll(scrollAmount, -1)},{rhs:"up"}); 
+})();
+EOM
+
+
+
+" 読み込んだ事を出力 
+echo ".vimperatorrc sourced" 
