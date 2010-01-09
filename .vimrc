@@ -21,6 +21,8 @@ nnoremap k gk
 nnoremap <space>, <Esc>:edit $MYVIMRC<CR>
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
 "----------------------------------------------------------------------
 "プラグインごとの設定
 "qfixhowm.vim
@@ -28,4 +30,6 @@ set runtimepath+=~/.vim/plugin/qfixapp
 inoremap <C-k> {<Space>}
 inoremap <C-l> =>
 "calendar.vim
-nnoremap ¥cal <Esc>:Calendar<CR>
+nnoremap g,q <Esc>:Calendar<CR>
+let calendar_action = "QFixHowmCalendarDiary"
+let calendar_sign = "QFixHowmCalendarSign"
