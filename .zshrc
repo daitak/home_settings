@@ -152,7 +152,7 @@ esac
 #
 [ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
 
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=/usr/sbin:/sbin:/opt/local/bin:/opt/local/sbin:$PATH
 export MANPATH=/opt/local/man:$MANPATH
 
 setopt extended_glob
