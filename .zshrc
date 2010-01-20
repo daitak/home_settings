@@ -29,6 +29,18 @@ case ${UID} in
   ;;
 esac
 
+
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' formats '(%s)-[%b]'
+zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
+precmd() {
+	psvar=()
+	LANG=en_US.UTF-8 vcs_info
+	[[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+}
+RPROMPT="%1(v|%F{green}%1v%f|)"
+
+
 # auto change directory
 #
 setopt auto_cd
@@ -93,17 +105,17 @@ alias where="command -v"
 alias j="jobs -l"
 
 case "${OSTYPE}" in
-freebsd*|darwin*)
-  alias ls="ls -G -w"
-  ;;
-linux*)
-  alias ls="ls --color"
-  ;;
+	freebsd*|darwin*)
+	alias ls="ls -G -w"
+	;;
+	linux*)
+	alias ls="ls --color"
+	;;
 esac
 
 alias la="ls -a"
 alias lf="ls -F"
-alias ll="ls -l"
+alias ll="ls -lh"
 
 alias du="du -h"
 alias df="df -h"
@@ -114,38 +126,38 @@ alias su="su -l"
 #
 unset LSCOLORS
 case "${TERM}" in
-xterm)
-  export TERM=xterm-color
-  ;;
-kterm)
-  export TERM=kterm-color
-  # set BackSpace control character
-  stty erase
-  ;;
-cons25)
-  unset LANG
-  export LSCOLORS=ExFxCxdxBxegedabagacad
-  export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-  zstyle ':completion:*' list-colors \
-    'di=;34;1' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
-  ;;
+	xterm)
+	export TERM=xterm-color
+	;;
+	kterm)
+	export TERM=kterm-color
+	# set BackSpace control character
+	stty erase
+	;;
+	cons25)
+	unset LANG
+	export LSCOLORS=ExFxCxdxBxegedabagacad
+	export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+	zstyle ':completion:*' list-colors \
+	'di=;34;1' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
+	;;
 esac
 
 # set terminal title including current directory
 #
 case "${TERM}" in
-kterm*|xterm*)
-  precmd() {
-    echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
-  }
-  export LSCOLORS=exfxcxdxbxegedabagacad
-  export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+	kterm*|xterm*)
+	precmd() {
+		echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
+	}
+	export LSCOLORS=exfxcxdxbxegedabagacad
+	export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 
-  zstyle ':completion:*:default' menu select=1
+	zstyle ':completion:*:default' menu select=1
 
-  zstyle ':completion:*' list-colors \
-    'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
-  ;;
+	zstyle ':completion:*' list-colors \
+	'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
+	;;
 esac
 
 ## load user .zshrc configuration file
