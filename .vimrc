@@ -13,6 +13,9 @@ filetype on
 filetype indent on
 filetype plugin on
 set autoindent
+set incsearch "インクリメンタルサーチ有効
+set ignorecase "大文字・小文字を無視
+set hlsearch
 "----------------------------------------------------------------------
 "キーバインド関係
 "行単位で移動（１行が長い場合に便利）
