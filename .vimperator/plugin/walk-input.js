@@ -62,9 +62,9 @@ var walkinput = function (forward) {
 
 };
 
-mappings.addUserMap([modes.NORMAL, modes.INSERT], ['<M-i>', '<A-i>'],
+mappings.addUserMap([modes.NORMAL, modes.INSERT], ['<C-i>', '<A-i>'],
                     'Walk Input Fields (Forward)', function () walkinput(true));
-mappings.addUserMap([modes.NORMAL, modes.INSERT], ['<M-I>', '<A-I>'],
+mappings.addUserMap([modes.NORMAL, modes.INSERT], ['<C-I>', '<A-I>'],
                     'Walk Input Fields (Backward)', function () walkinput(false));
 
 })();
