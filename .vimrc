@@ -16,24 +16,34 @@ set autoindent
 set incsearch "インクリメンタルサーチ有効
 set ignorecase "大文字・小文字を無視
 set hlsearch
+set expandtab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 "----------------------------------------------------------------------
 "キーバインド関係
 "行単位で移動（１行が長い場合に便利）
 nnoremap j gj
 nnoremap k gk
 nnoremap <space>, <Esc>:edit $MYVIMRC<CR>
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
+nnoremap sv <C-w>v
+nnoremap ss <C-w>s
+nnoremap sc <C-w>c
+nnoremap so <C-w>o
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sh <C-w>h
+nnoremap sl <C-w>l
 nnoremap Y y$
+inoremap <silent> <C-o> <C-^>
 "----------------------------------------------------------------------
 "プラグインごとの設定
 "qfixhowm.vim
 set runtimepath+=~/.vim/plugin/qfixapp
 inoremap <C-k> {<Space>}
-inoremap <C-l> =>
+inoremap <C-l> *<Space>
 "calendar.vim
 nnoremap g,q <Esc>:Calendar<CR>
 let calendar_action = "QFixHowmCalendarDiary"
 let calendar_sign = "QFixHowmCalendarSign"
+let howm_dir = '~/Dropbox/howm'
