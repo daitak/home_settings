@@ -36,6 +36,19 @@ nnoremap sh <C-w>h
 nnoremap sl <C-w>l
 nnoremap Y y$
 inoremap <silent> <C-o> <C-^>
+nnoremap <C-a> 0
+nnoremap <C-e> $
+
+imap {} {}<Left>
+imap [] []<Left>
+imap () ()<Left>
+imap “” “”<Left>
+imap ” ”<Left>
+imap <> <><Left>
+imap “ “<Left>
+imap "" ""<Left>
+imap '' ''<Left>
+
 "----------------------------------------------------------------------
 "プラグインごとの設定
 "qfixhowm.vim
@@ -47,3 +60,13 @@ nnoremap g,q <Esc>:Calendar<CR>
 let calendar_action = "QFixHowmCalendarDiary"
 let calendar_sign = "QFixHowmCalendarSign"
 let howm_dir = '~/Dropbox/howm'
+"neocomplcache.vim
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_omni_patterns = {
+      \ 'objc'   :  '\h\w\+\|\%(\h\w*\|)\)\%(\.\|->\)\h\w*'
+      \}
+
+"taglist.vim
+:set tags=tags
+:autocmd BufWinEnter *.rb :TlistOpen
+:autocmd BufWinEnter *.java :TlistOpen
