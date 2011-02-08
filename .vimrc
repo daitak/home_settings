@@ -70,3 +70,8 @@ let g:neocomplcache_omni_patterns = {
 :set tags=tags
 :autocmd BufWinEnter *.rb :TlistOpen
 :autocmd BufWinEnter *.java :TlistOpen
+
+"yanktmp.vim
+map <silent> sy :call YanktmpYank()<CR>
+map <silent> sp :call YanktmpPaste_p()<CR>
+map <silent> sP :call YanktmpPaste_P()<CR>
