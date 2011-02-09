@@ -51,6 +51,13 @@ imap '' ''<Left>
 
 "----------------------------------------------------------------------
 "プラグインごとの設定
+"rails.vim
+nnoremap rr <Esc>:R<CR>
+nnoremap rv <Esc>:Rview
+nnoremap rc <Esc>:Rcontroller
+nnoremap rh <Esc>:Rhelper
+
+
 "qfixhowm.vim
 set runtimepath+=~/.vim/plugin/qfixapp
 inoremap <C-k> {<Space>}
@@ -75,3 +82,9 @@ let g:neocomplcache_omni_patterns = {
 map <silent> sy :call YanktmpYank()<CR>
 map <silent> sp :call YanktmpPaste_p()<CR>
 map <silent> sP :call YanktmpPaste_P()<CR>
+
+"redmine.vim
+let g:redmine_auth_site = 'http://192.168.0.20'
+let g:redmine_auth_key = 'ccf1cfd4f0c32ed4204239a565d445d3d52c0b87'
+let g:redmine_author_id = '4'
+let g:redmine_project_id = 'keii-prototype-rails'
