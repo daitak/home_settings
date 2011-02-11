@@ -88,3 +88,6 @@ let g:redmine_auth_site = 'http://192.168.0.20'
 let g:redmine_auth_key = 'ccf1cfd4f0c32ed4204239a565d445d3d52c0b87'
 let g:redmine_author_id = '4'
 let g:redmine_project_id = 'keii-prototype-rails'
+
+"unite.vim
+nnoremap UF <Esc>:Unite file_rec<CR>
