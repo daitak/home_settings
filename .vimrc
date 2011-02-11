@@ -52,10 +52,10 @@ imap '' ''<Left>
 "----------------------------------------------------------------------
 "プラグインごとの設定
 "rails.vim
-nnoremap rr <Esc>:R<CR>
-nnoremap rv <Esc>:Rview
-nnoremap rc <Esc>:Rcontroller
-nnoremap rh <Esc>:Rhelper
+nnoremap R <Esc>:R<CR>
+nnoremap RV <Esc>:Rview
+nnoremap RC <Esc>:Rcontroller
+nnoremap RH <Esc>:Rhelper
 
 
 "qfixhowm.vim
@@ -105,6 +105,8 @@ nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
 nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
 " 全部乗せ
 nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+"unite-help
+nnoremap <silent> ,uh :<C-u>Unite help<CR>
 " ウィンドウを分割して開く
 au FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
 au FileType unite inoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
