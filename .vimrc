@@ -52,10 +52,10 @@ imap '' ''<Left>
 "----------------------------------------------------------------------
 "プラグインごとの設定
 "rails.vim
-nnoremap R <Esc>:R<CR>
-nnoremap RV <Esc>:Rview
-nnoremap RC <Esc>:Rcontroller
-nnoremap RH <Esc>:Rhelper
+nnoremap ,r <Esc>:R<CR>
+nnoremap ,rv <Esc>:Rview<Space>
+nnoremap ,rc <Esc>:Rcontroller<Space>
+nnoremap ,rh <Esc>:Rhelper<Space>
 
 
 "qfixhowm.vim
