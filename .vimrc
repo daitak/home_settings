@@ -52,10 +52,10 @@ imap '' ''<Left>
 "----------------------------------------------------------------------
 "プラグインごとの設定
 "rails.vim
-nnoremap R <Esc>:R<CR>
-nnoremap RV <Esc>:Rview<Space>
-nnoremap RC <Esc>:Rcontroller<Space>
-nnoremap RH <Esc>:Rhelper<Space>
+nnoremap ,r <Esc>:R<CR>
+nnoremap ,rv <Esc>:Rview<Space>
+nnoremap ,rc <Esc>:Rcontroller<Space>
+nnoremap ,rh <Esc>:Rhelper<Space>
 
 
 "qfixhowm.vim
@@ -88,3 +88,32 @@ let g:redmine_auth_site = 'http://192.168.0.20'
 let g:redmine_auth_key = 'ccf1cfd4f0c32ed4204239a565d445d3d52c0b87'
 let g:redmine_author_id = '4'
 let g:redmine_project_id = 'keii-prototype-rails'
+
+"unite.vim
+" 入力モードで開始する
+let g:unite_enable_start_insert=1
+" バッファ一覧
+nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
+" ファイル一覧
+"nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> ,uf :<C-u>Unite file_rec -buffer-name=files file<CR>
+" レジスタ一覧
+nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
+" 最近使用したファイル一覧
+nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
+" 常用セット
+nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
+" 全部乗せ
+nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+"unite-help
+nnoremap <silent> ,uh :<C-u>Unite help<CR>
+
+" ウィンドウを分割して開く
+au FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
+au FileType unite inoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
+" ウィンドウを縦に分割して開く
+au FileType unite nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
+au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
+" ESCキーを2回押すと終了する
+au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
+au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
