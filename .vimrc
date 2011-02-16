@@ -117,3 +117,6 @@ au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vspli
 " ESCキーを2回押すと終了する
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
+""unite-grep
+let g:unite_source_grep_default_opts = '-iRHn'
+nnoremap <silent> ,ug :<C-u>Unite grep<CR>
