@@ -29,16 +29,19 @@ case ${UID} in
   ;;
 esac
 
-
+autoload -Uz is-at-least
 autoload -Uz vcs_info
-zstyle ':vcs_info:*' formats '(%s)-[%b]'
-zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
-precmd() {
-	psvar=()
-	LANG=en_US.UTF-8 vcs_info
-	[[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
-}
-RPROMPT="%1(v|%F{green}%1v%f|)"
+if is-at-least 4.3.7; then
+  zstyle ':vcs_info:*' formats '(%s)-[%b]'
+  zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
+  precmd() {
+    psvar=()
+    LANG=en_US.UTF-8 vcs_info
+    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+  }
+  RPROMPT="%1(v|%F{green}%1v%f|)"
+fi
+
 
 
 # auto change directory
@@ -173,13 +176,13 @@ setopt extended_glob
 
 autoload -U compinit
 compinit
-source ~/.zsh/cdd
+[ -f ~/.zsh/cdd ] && source ~/.zsh/cdd
 
 function chpwd() {
 _reg_pwd_screennum
 }
 
-if [ $SHLVL -eq 1 ]
+if [ -x `where screen` -a $SHLVL -eq 1 ]
 then
   screen
 fi
