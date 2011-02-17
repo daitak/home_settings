@@ -178,6 +178,7 @@ autoload -U compinit
 compinit
 if [  -x `where screen` -a -f ~/.zsh/cdd ] 
 then
+  echo "hogehoge"
   source ~/.zsh/cdd
   function chpwd() {
   _reg_pwd_screennum
