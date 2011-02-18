@@ -176,11 +176,15 @@ setopt extended_glob
 
 autoload -U compinit
 compinit
-[  -x `where screen` -a -f ~/.zsh/cdd ] && source ~/.zsh/cdd
+if [  -x `where screen` -a -f ~/.zsh/cdd ] 
+then
+  source ~/.zsh/cdd
+  function chpwd() {
+  _reg_pwd_screennum
+  }
+fi 
 
-function chpwd() {
-_reg_pwd_screennum
-}
+
 
 if [ -x `where screen` -a $SHLVL -eq 1 ]
 then
