@@ -176,7 +176,7 @@ setopt extended_glob
 
 autoload -U compinit
 compinit
-[ -f ~/.zsh/cdd ] && source ~/.zsh/cdd
+[  -x `where screen` -a -f ~/.zsh/cdd ] && source ~/.zsh/cdd
 
 function chpwd() {
 _reg_pwd_screennum
