@@ -30,6 +30,10 @@ set history=1000
 set visualbell
 highlight Bell display:none
 
+set hintchars=hjklasdf
+
+hi Hint z-index:5000; font-size:14px; color:white; background-color:red; border-color:ButtonShadow; border-width:0px; border-style:solid; padding:0px 2px 0px 2px; position:absolute; font-family: Menlo, Consolas, Monaco, monospace; text-transform: uppercase;
+
 
 "+----------------------------------------------------------------------------------------+ 
 "キーマップ設定
@@ -80,33 +84,6 @@ map S :viewsource<CR>
 "+----------------------------------------------------------------------------------------+ 
 "プラグイン設定
 "+----------------------------------------------------------------------------------------+ 
-
-"" ime_controller.js
-let g:ex_ime_mode = "inactive"
-let g:textarea_ime_mode = "inactive"
-
-
-" feedSomeKeys.js 
-autocmd LocationChange .* :fmapc 
-autocmd LocationChange reader\\.livedoor\\.com/reader :fmap j k p o s c g u
-autocmd LocationChange google\\.com/calendar/render :fmap c p n t x w m a q <Esc>
-autocmd LocationChange nfeed\\.wwws\.nri\\.co\\.jp/feeds :fmap s a j k c
-
-
-"" ldr_cooperation.js 
-""let g:ldrc_captureMappings = "['t', 'h', 'l', 'j', 'k', 'p', 'o', '?']" 
-let g:ldrc_captureMappings = "[ 'j', 'k', 'p', 'o', '?']" 
-
-let g:ldrc_hints = "true" 
-let g:ldrc_intelligence_bind = "true" 
-let g:ldrc_skip = "0.20" 
-
-set hintmatching=custom 
-
-""splitBrowser.js
-noremap <C-w>s :split<CR>
-noremap <C-w>v :vsplit<CR>
-
 
 
 """""""" websites """""""" 
