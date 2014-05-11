@@ -191,7 +191,7 @@ then
   screen
 fi
 
-bindkey -v
+#bindkey -v
 
 
 # インクリメンタルサーチの設定
