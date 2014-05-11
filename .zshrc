@@ -168,7 +168,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 #
 [ -f ~/.zshrc.mine ] && source ~/.zshrc.mine
 
-export PATH=/usr/local/zend/bin:/opt/local/lib/ruby/gems/1.9.1/bin:/opt/local/bin:/opt/usr/local/google_appengine:/usr/sbin:/sbin:/opt/local/sbin:/Library/android-sdk-mac_86/tools/:/Library/android-sdk-mac_86/platform-tools/:$PATH
+export PATH=/usr/local/zend/bin:/opt/local/lib/ruby/gems/1.9.1/bin:/opt/local/bin:/opt/usr/local/google_appengine:/usr/sbin:/sbin:/opt/local/sbin:/Library/android-sdk-mac_86/tools/:/Library/android-sdk-mac_86/platform-tools/:$PATH:/Users/daiki/.rvm/bin
 export LD_LIBRARY_PATH=/usr/local/zend/lib:$LD_LIBRARY_PATH
 export MANPATH=/opt/local/man:$MANPATH
 
@@ -313,3 +313,7 @@ unfunction makemodal
 
 #zend
 alias zf=/usr/local/zend/share/ZendFramework/bin/zf.sh
+
+if [[ -s $HOME/.rvm/scripts/rvm ]] then
+   source $HOME/.rvm/scripts/rvm
+fi
