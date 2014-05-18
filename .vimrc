@@ -75,8 +75,8 @@ let g:neocomplcache_omni_patterns = {
 
 "taglist.vim
 :set tags=tags
-:autocmd BufWinEnter *.rb :TlistOpen
-:autocmd BufWinEnter *.java :TlistOpen
+":autocmd BufWinEnter *.rb :TlistOpen
+":autocmd BufWinEnter *.java :TlistOpen
 
 "yanktmp.vim
 map <silent> sy :call YanktmpYank()<CR>
