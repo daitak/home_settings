@@ -20,6 +20,7 @@ set expandtab
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
+set encoding=utf-8 "内部エンコーディングをUTF8に変更"
 "----------------------------------------------------------------------
 "キーバインド関係
 "行単位で移動（１行が長い場合に便利）
