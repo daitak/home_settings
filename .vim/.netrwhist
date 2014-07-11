@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/Users/daiki/EPGREC/chef-repo/site-cookbooks'
-let g:netrw_dirhist_2='/Users/daiki/EPGREC/chef-repo/site-cookbooks/epgrec'
-let g:netrw_dirhist_3='/Users/daiki/EPGREC/chef-repo/site-cookbooks/epgrec/recipes'
-let g:netrw_dirhist_4='/Users/daiki/EPGREC/chef-repo'
-let g:netrw_dirhist_5='/Users/daiki/EPGREC/chef-repo/site-cookbooks'
-let g:netrw_dirhist_6='/Users/daiki/EPGREC/chef-repo/site-cookbooks/epgrec'
-let g:netrw_dirhist_7='/Users/daiki/EPGREC/chef-repo/site-cookbooks/epgrec/recipes'

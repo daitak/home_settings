@@ -1,5 +1,6 @@
 /*
 /.*
+
 !/cdd
 !/.gvimrc
 !/.screenrc
@@ -8,4 +9,6 @@
 !/.zshrc
 !/.vim
 !/.vimperator
+
+/.vim/.netrwhist
 /.vimperator/info/default/*
