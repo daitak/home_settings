@@ -113,4 +113,4 @@ let b:lineContList = [
 "           statement
 "
 let b:contTraversesLineComments = 1
-
+setlocal shiftwidth=4
