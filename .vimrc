@@ -1,5 +1,30 @@
 "----------------------------------------------------------------------
 set nocompatible
+filetype plugin indent off
+
+if has('vim_starting')
+   set runtimepath+=~/.vim/bundle/neobundle.vim
+endif 
+
+
+call neobundle#begin(expand('~/.vim/bundle'))
+
+NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'fuenor/qfixhowm'
+"NeoBundle 'Shougo/neocomplcache.vim'
+"NeoBundle 'vim-scripts/taglist.vim'
+NeoBundle 'vim-scripts/yanktmp.vim'
+NeoBundle 'tpope/vim-surround'
+
+call neobundle#end()
+
+filetype plugin indent on
+
+NeoBundleCheck
+
+
 "----------------------------------------------------------------------
 "ステータスライン
 set laststatus=2 "常にステータスラインを表示
@@ -57,16 +82,12 @@ nnoremap ,rv <Esc>:Rview<Space>
 nnoremap ,rc <Esc>:Rcontroller<Space>
 nnoremap ,rh <Esc>:Rhelper<Space>
 
-
 "qfixhowm.vim
 set runtimepath+=~/.vim/plugin/qfixapp
 inoremap <C-k> {<Space>}
 inoremap <C-l> *<Space>
-"calendar.vim
-nnoremap g,q <Esc>:Calendar<CR>
-let calendar_action = "QFixHowmCalendarDiary"
-let calendar_sign = "QFixHowmCalendarSign"
 let howm_dir = '~/Dropbox/howm'
+
 "neocomplcache.vim
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_omni_patterns = {
@@ -82,12 +103,6 @@ let g:neocomplcache_omni_patterns = {
 map <silent> sy :call YanktmpYank()<CR>
 map <silent> sp :call YanktmpPaste_p()<CR>
 map <silent> sP :call YanktmpPaste_P()<CR>
-
-"redmine.vim
-let g:redmine_auth_site = 'http://192.168.0.20'
-let g:redmine_auth_key = 'ccf1cfd4f0c32ed4204239a565d445d3d52c0b87'
-let g:redmine_author_id = '4'
-let g:redmine_project_id = 'keii-prototype-rails'
 
 "unite.vim
 " 入力モードで開始する
