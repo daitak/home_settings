@@ -19,14 +19,16 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " 読み込むプラグインを記載
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'fuenor/qfitgrep'
+NeoBundle 'fuenor/qfixgrep'
 NeoBundle 'fuenor/qfixhowm'
 NeoBundle 'junegunn/seoul256.vim'
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'sakuraiyuta/commentout.vim'
 "NeoBundle 'itchyny/calendar.vim'
-NeoBundle 'nathanaelkane/vim-indent-guides'
+if has("gui_running") && ( has("win32unix") || has ("win64unix") || has("win32") || has ("win64") )
+    NeoBundle 'nathanaelkane/vim-indent-guides'
+endif
 NeoBundle "osyo-manga/unite-qfixhowm"
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/vimproc'
@@ -48,8 +50,7 @@ set nocompatible
 
 set guioptions=
 
-:set viminfo+=n%VIM%/viminfo.txt
-
+:set viminfo+=n~/.vim/viminfo.txt
 :set nu
 
 "ステータスラインに文字コード等表示
@@ -92,7 +93,6 @@ augroup BinaryXXD
   autocmd BufWritePost * if &binary | silent %!xxd -g 1
   autocmd BufWritePost * set nomod | endif
 augroup END
-
 
 "------------------------------------------------------------
 "コマンド定義
@@ -179,8 +179,10 @@ noremap <S-Space> :bprev<CR>
 let QFixHowm_FoldingPattern = '^[=.*[]'
 
 "外部grep(yagrep)を使用する
-let mygrepprg = 'yagrep'
-let MyGrepcmd_useropt = '-i --include="*.howm"'
+if has("gui_running") && ( has("win32unix") || has ("win64unix") || has("win32") || has ("win64") )
+    let mygrepprg = 'yagrep'
+    let MyGrepcmd_useropt = '-i --include="*.howm"'
+endif
 
 let QFix_Height = 20
 
