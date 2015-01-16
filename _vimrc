@@ -21,13 +21,15 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'fuenor/qfixgrep'
 NeoBundle 'fuenor/qfixhowm'
-NeoBundle 'junegunn/seoul256.vim'
-NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'sakuraiyuta/commentout.vim'
 "NeoBundle 'itchyny/calendar.vim'
 if has("gui_running") && ( has("win32unix") || has ("win64unix") || has("win32") || has ("win64") )
     NeoBundle 'nathanaelkane/vim-indent-guides'
+    NeoBundle 'junegunn/seoul256.vim'
+    NeoBundle 'w0ng/vim-hybrid'
+else
+    NeoBundle "KyleOndy/wombat256mod"
 endif
 NeoBundle "osyo-manga/unite-qfixhowm"
 NeoBundle 'Shougo/vimfiler'
