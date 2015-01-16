@@ -34,6 +34,8 @@ endif
 NeoBundle "osyo-manga/unite-qfixhowm"
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimshell.vim'
+NeoBundle 'Shougo/neomru.vim'
 
 call neobundle#end()
 
