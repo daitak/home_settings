@@ -101,7 +101,6 @@ augroup END
 "------------------------------------------------------------
 command! Big wincmd _|wincmd |
 
-
 "------------------------------------------------------------
 "キーマップ
 "------------------------------------------------------------
@@ -132,15 +131,13 @@ nnoremap s\| <C-w>\|
 noremap sb :Big<CR>
 
 noremap ,, <Esc>:edit $MYVIMRC<CR>
-noremap .. <Esc>:edit $MYGVIMRC<CR>
 
 nnoremap Y y$
 
 
 "カッコ等を書いたらカーソルを戻す
 imap “” “”<Left>
-imap ” ”<Left>
-imap “ “<Left>
+imap ” ”<Left> imap “ “<Left>
 imap "" ""<Left>
 imap '' ''<Left>
 "imap {} {}<Left>
@@ -153,6 +150,7 @@ imap < <><Left>
 
 "Visual mode で選択したテキストを検索する
 vnoremap <silent> * "vy/\V<C-r>=substitute(escape(@v,'\/'),"\n",'\\n','g')<CR><CR>
+
 
 
 "------------------------------------------------------------
@@ -240,9 +238,11 @@ let QFixHowm_ShowTodayLine = 3
 
 let QFixHowm_HolidayFile = 'd:\MyDoc\howm\holiday\Sche-Hd-0000-00-00-000000.cp932'
 
-"Calendar表示
-"autocmd BufWinEnter *.howm :Calendar
-
+"折りたたみを無効にする
+let QFixHowm_Folding = 0
+autocmd BufNewFile,BufRead *.howm setlocal nofoldenable
+autocmd BufNewFile,BufRead *.howm setlocal foldmethod=indent shiftwidth=4 foldenable foldlevel=1
+set foldcolumn=3
 
 " unite
 "
