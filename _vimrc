@@ -240,9 +240,10 @@ let QFixHowm_HolidayFile = 'd:\MyDoc\howm\holiday\Sche-Hd-0000-00-00-000000.cp93
 
 "ê‹ÇËÇΩÇΩÇ›Çñ≥å¯Ç…Ç∑ÇÈ
 let QFixHowm_Folding = 0
-autocmd BufNewFile,BufRead *.howm setlocal nofoldenable
-autocmd BufNewFile,BufRead *.howm setlocal foldmethod=indent shiftwidth=4 foldenable foldlevel=1
+autocmd BufNewFile,BufCreate *.howm setlocal foldmethod=indent shiftwidth=4 foldenable foldlevel=0
 set foldcolumn=3
+
+
 
 " unite
 "
